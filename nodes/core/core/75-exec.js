@@ -129,9 +129,9 @@ module.exports = function(RED) {
                         }
                         var msg3 = null;
                         node.status({});
-                        console.log('[exec] stdout:' + stdout + ':');
-                        console.log('[exec] stderr:' + stderr + ':');
-                        console.log('[exec] error:' + error + ':');
+                        //console.log('[exec] stdout:' + stdout + ':');
+                        //console.log('[exec] stderr:' + stderr + ':');
+                        //console.log('[exec] error:' + error + ':');
                         if (error !== null) {
                             msg3 = {payload:{code:error.code, message:error.message}};
                             if (error.signal) { msg3.payload.signal = error.signal; }
