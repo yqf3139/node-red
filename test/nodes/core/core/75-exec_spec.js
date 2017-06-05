@@ -610,6 +610,7 @@ describe('exec node', function() {
                 var n3 = helper.getNode("n3");
                 var n4 = helper.getNode("n4");
                 n4.on("input", function(msg) {
+                    console.log("MSG",msg);
                     msg.should.have.property("payload");
                     msg.payload.should.have.property("signal",sig);
                     done();

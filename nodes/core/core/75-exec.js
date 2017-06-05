@@ -40,7 +40,7 @@ module.exports = function(RED) {
 
         this.on("input", function(msg) {
             if (msg.hasOwnProperty("kill")) {
-                if (typeof msg.kill !== "string" || msg.kill.length === 0 || !msg.kill.toUpperCase().startsWith("SIG") ) { msg.kill = ""; }
+                if (typeof msg.kill !== "string" || msg.kill.length === 0 || !msg.kill.toUpperCase().startsWith("SIG") ) { msg.kill = "SIGTERM"; }
                 if (msg.hasOwnProperty("pid")) {
                     if (node.activeProcesses.hasOwnProperty(msg.pid) ) {
                         node.activeProcesses[msg.pid].kill(msg.kill.toUpperCase());
@@ -129,8 +129,9 @@ module.exports = function(RED) {
                         }
                         var msg3 = null;
                         node.status({});
-                        //console.log('[exec] stdout: ' + stdout);
-                        //console.log('[exec] stderr: ' + stderr);
+                        console.log('[exec] stdout:' + stdout + ':');
+                        console.log('[exec] stderr:' + stderr + ':');
+                        console.log('[exec] error:' + error + ':');
                         if (error !== null) {
                             msg3 = {payload:{code:error.code, message:error.message}};
                             if (error.signal) { msg3.payload.signal = error.signal; }
