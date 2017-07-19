@@ -266,6 +266,7 @@ function start(type,diff,muteLog) {
         if (!activeFlows['global']) {
             log.debug("red/nodes/flows.start : starting flow : global");
             activeFlows['global'] = Flow.create(activeFlowConfig);
+            // console.log('global', activeFlowConfig);
         }
         for (id in activeFlowConfig.flows) {
             if (activeFlowConfig.flows.hasOwnProperty(id)) {

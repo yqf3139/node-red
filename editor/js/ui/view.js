@@ -2247,6 +2247,7 @@ RED.view = (function() {
                             });
                         }
 
+                        // TODO yqf
                         if (!showStatus || !d.status) {
                             thisNode.selectAll(".node_status_group").style("display","none");
                         } else {
@@ -2275,6 +2276,11 @@ RED.view = (function() {
                                 thisNode.selectAll(".node_status_label").text(d.status.text);
                             } else {
                                 thisNode.selectAll(".node_status_label").text("");
+                            }
+                            if (d.status.running) {
+                                thisNode.selectAll(".node").classed("node_running", true);
+                            } else {
+                                thisNode.selectAll(".node").classed("node_running", false);
                             }
                         }
 
@@ -2770,7 +2776,7 @@ RED.view = (function() {
                 gridSize = v;
                 updateGrid();
             }
-        }
-
+        },
+        addNode: addNode,
     };
 })();

@@ -356,11 +356,13 @@ RED.clipboard = (function() {
                     RED.view.importNodes(data);
                 } else if ($.inArray("Files",event.originalEvent.dataTransfer.types) != -1) {
                     var files = event.originalEvent.dataTransfer.files;
-                    if (files.length === 1) {
-                        var file = files[0];
+                    for (var i = 0; i < files.length; i++) {
+                        var file = files[i];
                         var reader = new FileReader();
                         reader.onload = (function(theFile) {
                             return function(e) {
+                                if (RED.fission && RED.fission.importFunction(theFile, e.target.result))
+                                    return;
                                 RED.view.importNodes(e.target.result);
                             };
                         })(file);
