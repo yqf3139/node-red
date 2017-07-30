@@ -2049,12 +2049,12 @@ RED.view = (function() {
                         var status = node.append("svg:g").attr("class","node_status_group").style("display","none");
 
                         var statusRect = status.append("rect").attr("class","node_status")
-                                            .attr("x",6).attr("y",1).attr("width",9).attr("height",9)
+                                            .attr("x",4).attr("y",4).attr("width",12).attr("height",12)
                                             .attr("rx",2).attr("ry",2).attr("stroke-width","3");
 
                         var statusLabel = status.append("svg:text")
                             .attr("class","node_status_label")
-                            .attr("x",20).attr("y",9);
+                            .attr("x",20).attr("y",16);
                     }
                     //node.append("circle").attr({"class":"centerDot","cx":0,"cy":0,"r":5});
 

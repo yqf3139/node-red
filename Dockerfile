@@ -24,6 +24,7 @@ WORKDIR /root/.node-red
 COPY deploy/package.json deploy/settings.js ./
 RUN npm install
 
+RUN echo 'log6' > log
 RUN git clone https://github.com/yqf3139/node-red-contrib-fission.git /root/node-red-contrib-fission
 WORKDIR /root/node-red-contrib-fission
 RUN git fetch origin k8s
